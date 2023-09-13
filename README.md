@@ -6,9 +6,7 @@
 * [Kanban](https://github.com/users/svanka024/projects/1)
 
 ## General info
-This is a small school project for a mock up company named Geoprofs.
-
-Where we build a leave system with the use of Entity Framework Core in an ASP.NET Model View Controller web app. 
+This is a small school project for a mock up company named Geoprofs. Where we build a leave system with the use of Entity Framework Core in an ASP.NET Model View Controller web app. 
  
 ## Technologies
 Project is created with:
