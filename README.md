@@ -6,8 +6,8 @@
 * [Kanban](https://github.com/users/svanka024/projects/1)
 * [ERD](#erd)
 * [Wireframe](#wireframe)
-* [UseCase-Forum](#usecase)
-* [UseCase-Diagram](#usecase_diagram)
+* [UseCase-Tabel](https://docs.google.com/document/d/17mm-TG1m98SMSkAAwu6NhHHZBe1f_Sh7VqmdM8vNjzU/edit)
+* [UseCase-Diagram](https://lucid.app/lucidchart/dfaa9680-2ba7-45cb-b009-e59668d616ce/edit?invitationId=inv_4bf30569-2860-4bf3-93c7-6443247db0ad&page=0_0#)
 * [Flowchart](#flowchart)
 
 ## General info
