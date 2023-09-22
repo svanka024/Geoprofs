@@ -2,7 +2,7 @@
 
 ## Table of contents
 * [Work appointments](https://docs.google.com/document/d/1MbaaNfLY_A3iA2qHCZ_FRFyOehceJjpxTrFsqTWMa2M/edit)
-* [Requirements](https://docs.google.com/document/d/1xv_qz6JXwewakLFjI_R5YGyl8XhmklWPHwncH0N12-8/edit#heading=h.c4hzrqkf3y8b)
+* [Requirements](https://rocnijmegen2-my.sharepoint.com/:w:/g/personal/rnieuwkoop_roc-nijmegen_nl/EQUPFHEzyrFEtm3gBLbkl4AB_mcOdO5i70jwHWSjbW76jw?e=4%3ANmCSJ7&fromShare=true&at=9&CID=4c8ac643-6fb2-23dd-517a-fee3fb13f5d4)
 * [Kanban](https://github.com/users/svanka024/projects/1)
 * [ERD](#erd)
 * [Wireframe](#wireframe)
