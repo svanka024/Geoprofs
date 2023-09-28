@@ -1,3 +1,8 @@
+[![.NET Core Desktop](https://github.com/svanka024/Geoprofs/actions/workflows/dotnet-desktop.yml/badge.svg?branch=develop)](https://github.com/svanka024/Geoprofs/actions/workflows/dotnet-desktop.yml)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![.Net](https://img.shields.io/badge/.NET-6.0-8A2BE2)](https://dotnet.microsoft.com/en-us/download)
+[![Visual Studio](https://img.shields.io/badge/Visual%20Studio-2022-8A2BE2)](https://visualstudio.microsoft.com/downloads/)
+
 # Geoprofs
 
 ## Table of contents
@@ -16,15 +21,13 @@ This is a small school project for a mock up company named Geoprofs. Where we bu
  
 ## Technologies
 Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
+* Visual Studio 2022 Community Edition
+* .NET: 6.0
 	
 ## Setup
-To run this project, install it locally using npm:
+To run this project, clone the repo open it in an IDE that supports the project e.g. Visual Studio:
 
 ```
-$ cd ../lorem
-$ npm install
-$ npm start
+$ cd ../Geoprofs/GeoProfs
+$ dotnet run
 ```
