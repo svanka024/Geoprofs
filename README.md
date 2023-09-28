@@ -1,4 +1,4 @@
-[![.NET Core Desktop](https://github.com/svanka024/Geoprofs/actions/workflows/dotnet-desktop.yml/badge.svg?branch=develop)](https://github.com/svanka024/Geoprofs/actions/workflows/dotnet-desktop.yml)
+[![.NET](https://github.com/svanka024/Geoprofs/actions/workflows/dotnet.yml/badge.svg)](https://github.com/svanka024/Geoprofs/actions/workflows/dotnet.yml)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![.Net](https://img.shields.io/badge/.NET-6.0-8A2BE2)](https://dotnet.microsoft.com/en-us/download)
 [![Visual Studio](https://img.shields.io/badge/Visual%20Studio-2022-8A2BE2)](https://visualstudio.microsoft.com/downloads/)
