@@ -11,10 +11,8 @@
 * [Kanban](https://github.com/users/svanka024/projects/1)
 * [ERD](https://lucid.app/lucidchart/66390e2d-e835-4976-aec1-5fb134d58ff5/edit?viewport_loc=178%2C-265%2C1246%2C528%2C0_0&invitationId=inv_5f61c42b-4db0-4e76-9502-bbcfb4e5b9a5)
 * [Wireframe](https://app.moqups.com/XzBepT9Cqstx1FUQAdV4HZ0u1v4cZeD7/edit/page/a57f5c842)
-* [UseCase-Tabel](https://docs.google.com/document/d/17mm-TG1m98SMSkAAwu6NhHHZBe1f_Sh7VqmdM8vNjzU/edit)
-* [UseCase-Diagram](https://lucid.app/lucidchart/dfaa9680-2ba7-45cb-b009-e59668d616ce/edit?invitationId=inv_4bf30569-2860-4bf3-93c7-6443247db0ad&page=0_0#)
-* [Flowchart 1](https://lucid.app/lucidchart/invitations/accept/inv_eb91375a-dd4b-43bb-bea0-7c5519428f07)
-* [Flowchart 2](https://lucid.app/lucidchart/invitations/accept/inv_06738968-1787-4569-9b28-ced3ecee9e1e)
+* [UseCase-Tabel](https://docs.google.com/document/d/17mm-TG1m98SMSkAAwu6NhHHZBe1f_Sh7VqmdM8vNjzU/edit) / [UseCase-Diagram](https://lucid.app/lucidchart/dfaa9680-2ba7-45cb-b009-e59668d616ce/edit?invitationId=inv_4bf30569-2860-4bf3-93c7-6443247db0ad&page=0_0#)
+* [Flowchart 1](https://lucid.app/lucidchart/invitations/accept/inv_eb91375a-dd4b-43bb-bea0-7c5519428f07) / [Flowchart 2](https://lucid.app/lucidchart/invitations/accept/inv_06738968-1787-4569-9b28-ced3ecee9e1e)
 
 ## General info
 This is a small school project for a mock up company named Geoprofs. Where we build a leave system with the use of Entity Framework Core in an ASP.NET Model View Controller web app. 
