@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\donfo\\source\\repos\\GeoProfs\\GeoProfs\\GeoProfs.csproj": {}
+    "C:\\Users\\donfo\\Documents\\GitHub\\GeoProfs\\GeoProfs\\GeoProfs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\donfo\\source\\repos\\GeoProfs\\GeoProfs\\GeoProfs.csproj": {
+    "C:\\Users\\donfo\\Documents\\GitHub\\GeoProfs\\GeoProfs\\GeoProfs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\donfo\\source\\repos\\GeoProfs\\GeoProfs\\GeoProfs.csproj",
+        "projectUniqueName": "C:\\Users\\donfo\\Documents\\GitHub\\GeoProfs\\GeoProfs\\GeoProfs.csproj",
         "projectName": "GeoProfs",
-        "projectPath": "C:\\Users\\donfo\\source\\repos\\GeoProfs\\GeoProfs\\GeoProfs.csproj",
+        "projectPath": "C:\\Users\\donfo\\Documents\\GitHub\\GeoProfs\\GeoProfs\\GeoProfs.csproj",
         "packagesPath": "C:\\Users\\donfo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\donfo\\source\\repos\\GeoProfs\\GeoProfs\\obj\\",
+        "outputPath": "C:\\Users\\donfo\\Documents\\GitHub\\GeoProfs\\GeoProfs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
