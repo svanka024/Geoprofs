@@ -23,7 +23,7 @@ Project is created with:
 * .NET: 6.0
 	
 ## Setup
-To run this project, clone the repo open it in an IDE that supports the project e.g. Visual Studio:
+To run this project, clone the repo and open it in an IDE that supports the project e.g. Visual Studio:
 
 ```
 $ cd ../Geoprofs/GeoProfs
