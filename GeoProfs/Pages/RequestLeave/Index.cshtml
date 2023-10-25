@@ -1,0 +1,47 @@
+﻿@page
+@model GeoProfs.Pages.VerlofAanvragen.IndexModel
+@{
+    ViewData["Title"] = "Verlof Aanvragen";
+}
+
+
+<div class="row mb-auto justify-content-center">
+    <div class="col-md-4">
+        <div class="row no-gutters border mb-4">
+            <div class="col p-4 mb-4 ">
+                <h2 class="d-flex justify-content-center">
+                    Leave request
+                </h2>
+                <hr>
+                <div class="">
+                        <input type="radio" id="1" name="leave_reason" value="Sick">
+                        <label for="sick">sick</label><br>
+                        <input type="radio" id="2" name="leave_reason" value="Vacation">
+                        <label for="vacation">vacation</label><br>
+                        <input type="radio" id="3" name="leave_reason" value="Personal">
+                        <label for="personal">personal</label>
+                    <hr>
+                    <form>
+                        <label for="datemin">Enter your leave date:</label><br>
+                        <input type="date" id="datemin" name="datemin" min="2023-00-00"><br>
+                        <label for="datemax">Enter your return date:</label><br>
+                        <input type="date" id="datemin" name="datemax" min="2023-00-00">
+                    </form>
+                    <div class="d-flex justify-content-end">
+                        <input type="submit" value="Submit">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Please ignore unused code for dropdown, but fuck dropdowns! They are ugly af!
+
+<select name="LeaveRequest" id="leaveRequest">
+    <optgroup label="Leave reason">
+    <option value="1">Sick</option>
+    <option value="2">Vacation</option>
+    <option value="3">Personal</option>
+    </optgroup>
+</select> *@

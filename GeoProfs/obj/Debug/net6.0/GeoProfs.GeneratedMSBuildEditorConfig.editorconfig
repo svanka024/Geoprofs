@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\donfo\Documents\GitHub\GeoProfs\GeoProfs
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/donfo/Documents/GitHub/GeoProfs/GeoProfs/Pages/ApproveLeave/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwcm92ZUxlYXZlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/donfo/Documents/GitHub/GeoProfs/GeoProfs/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -26,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/donfo/Documents/GitHub/GeoProfs/GeoProfs/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/donfo/Documents/GitHub/GeoProfs/GeoProfs/Pages/RequestLeave/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVxdWVzdExlYXZlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/donfo/Documents/GitHub/GeoProfs/GeoProfs/Pages/Shared/_ValidationScriptsPartial.cshtml]
@@ -50,14 +58,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/donfo/Documents/GitHub/GeoProfs/GeoProfs/Pages/Students/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudHNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/donfo/Documents/GitHub/GeoProfs/GeoProfs/Pages/VerlofAanvragen/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVybG9mQWFudnJhZ2VuXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/donfo/Documents/GitHub/GeoProfs/GeoProfs/Pages/VerlofGoedkeuren/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVybG9mR29lZGtldXJlblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/donfo/Documents/GitHub/GeoProfs/GeoProfs/Pages/_ViewImports.cshtml]
