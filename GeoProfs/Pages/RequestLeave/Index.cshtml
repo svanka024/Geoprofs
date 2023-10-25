@@ -14,20 +14,27 @@
                 </h2>
                 <hr>
                 <div class="">
-                        <input type="radio" id="1" name="leave_reason" value="Sick">
-                        <label for="sick">sick</label><br>
-                        <input type="radio" id="2" name="leave_reason" value="Vacation">
-                        <label for="vacation">vacation</label><br>
-                        <input type="radio" id="3" name="leave_reason" value="Personal">
+                    <p class ="d-flex justify-content-center">Leave type</p>
+                    <div class="d-flex justify-content-center"></div>
+                        <input type="radio" id="1" name="leave_type" value="Sick">
+                        <label for="sick">sick</label>
+                        <input type="radio" id="2" name="leave_type" value="Vacation">
+                        <label for="vacation">vacation</label>
+                        <input type="radio" id="3" name="leave_type" value="Personal">
                         <label for="personal">personal</label>
+                    </div>
                     <hr>
-                    <form>
-                        <label for="datemin">Enter your leave date:</label><br>
-                        <input type="date" id="datemin" name="datemin" min="2023-00-00"><br>
-                        <label for="datemax">Enter your return date:</label><br>
-                        <input type="date" id="datemin" name="datemax" min="2023-00-00">
-                    </form>
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-md-center">
+                        <form>
+                            <label for="datemin">Start:</label><br>
+                            <input type="date" id="datemin" name="datemin" min="2023-00-00"><br>
+                        </form>
+                        <form>
+                            <label for="datemax">End:</label><br>
+                            <input type="date" id="datemin" name="datemax" min="2023-00-00"><br>
+                        </form>
+                    </div>
+                    <div class="d-flex justify-content-center">
                         <input type="submit" value="Submit">
                     </div>
                 </div>
