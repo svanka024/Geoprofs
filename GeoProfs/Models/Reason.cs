@@ -1,8 +1,8 @@
 ﻿namespace GeoProfs.Models
 {
-    public class Rechten
+    public class Reason
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }
