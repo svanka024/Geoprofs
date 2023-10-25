@@ -9,7 +9,7 @@
         public int VacationDays { get; set; }
         public Position Position { get; set; }
         public Department Department { get; set; }
-        public DateOnly DateService { get; set; }
+        public DateTime DateService { get; set; }
         public string Comments { get; set; }
         public Account Account { get; set; }
     }
