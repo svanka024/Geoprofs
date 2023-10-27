@@ -15,7 +15,7 @@
                 <hr>
                 <div class="">
                     <p class ="d-flex justify-content-center">Leave type</p>
-                    <div class="d-flex justify-content-center"></div>
+                    <div class="d-flex justify-content-betweend"></div>
                         <input type="radio" id="1" name="leave_type" value="Sick">
                         <label for="sick">sick</label>
                         <input type="radio" id="2" name="leave_type" value="Vacation">
@@ -24,7 +24,14 @@
                         <label for="personal">personal</label>
                     </div>
                     <hr>
-                    <div class="d-flex justify-content-md-center">
+                    <div class="width:100% justify-content-center">
+                        <form>
+                            <label for="aInfo">Additional info:</label><br>
+                            <textarea id="aInfo"></textarea>
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-center">
                         <form>
                             <label for="datemin">Start:</label><br>
                             <input type="date" id="datemin" name="datemin" min="2023-00-00"><br>
