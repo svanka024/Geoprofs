@@ -24,12 +24,12 @@ namespace GeoProfs.Pages.Users
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.User == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.User.FirstOrDefaultAsync(m => m.Id == id);
+            var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
 
             if (user == null)
             {
@@ -44,16 +44,16 @@ namespace GeoProfs.Pages.Users
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.User == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
-            var user = await _context.User.FindAsync(id);
+            var user = await _context.Users.FindAsync(id);
 
             if (user != null)
             {
                 User = user;
-                _context.User.Remove(User);
+                _context.Users.Remove(User);
                 await _context.SaveChangesAsync();
             }
 

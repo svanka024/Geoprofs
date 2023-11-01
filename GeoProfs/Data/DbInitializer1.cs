@@ -7,39 +7,26 @@ namespace GeoProfs.Data
 {
     public static class DbInitializer
     {
-        public static void Initialize()//SchoolContext context)
+        public static void Initialize(GeoProfsContext context)
         {
-            // Look for any students.
-            //if (context.Students.Any())
-            //{
-            //    return;   // DB has been seeded
-            //}
+            //Look for any users.
+            if (context.Users.Any())
+            {
+                return;   // DB has been seeded
+            }
 
-            //var students = new Student[]
-            //{
-            //    new Student{FirstMidName="Carson",LastName="Alexander",EnrollmentDate=DateTime.Parse("2019-09-01")},
-            //    new Student{FirstMidName="Meredith",LastName="Alonso",EnrollmentDate=DateTime.Parse("2017-09-01")},
-            //    new Student{FirstMidName="Arturo",LastName="Anand",EnrollmentDate=DateTime.Parse("2018-09-01")},
-            //    new Student{FirstMidName="Gytis",LastName="Barzdukas",EnrollmentDate=DateTime.Parse("2017-09-01")},
-            //    new Student{FirstMidName="Yan",LastName="Li",EnrollmentDate=DateTime.Parse("2017-09-01")},
-            //    new Student{FirstMidName="Peggy",LastName="Justice",EnrollmentDate=DateTime.Parse("2016-09-01")},
-            //    new Student{FirstMidName="Laura",LastName="Norman",EnrollmentDate=DateTime.Parse("2018-09-01")},
-            //    new Student{FirstMidName="Nino",LastName="Olivetto",EnrollmentDate=DateTime.Parse("2019-09-01")}
-            //};
+            var users = new User[]
+            {
+                new User{FirstName="Carson",LastName="Alexander",DateService=DateTime.Parse("2019-09-01")},
+            };
 
-            //context.Students.AddRange(students);
-            //context.SaveChanges();
+            context.Users.AddRange(users);
+            context.SaveChanges();
 
-            //var courses = new Course[]
-            //{
-            //    new Course{CourseID=1050,Title="Chemistry",Credits=3},
-            //    new Course{CourseID=4022,Title="Microeconomics",Credits=3},
-            //    new Course{CourseID=4041,Title="Macroeconomics",Credits=3},
-            //    new Course{CourseID=1045,Title="Calculus",Credits=4},
-            //    new Course{CourseID=3141,Title="Trigonometry",Credits=4},
-            //    new Course{CourseID=2021,Title="Composition",Credits=3},
-            //    new Course{CourseID=2042,Title="Literature",Credits=4}
-            //};
+            var accounts = new Account[]
+            {
+                new Account{Name="Iris", Password="Reijnen", Email="i.g.r@gmail.com"},
+            };
 
             //context.Courses.AddRange(courses);
             //context.SaveChanges();

@@ -14,6 +14,7 @@ namespace GeoProfs.Data
         {
         }
 
-        public DbSet<GeoProfs.Models.User> User { get; set; } = default!;
+        public DbSet<GeoProfs.Models.User> Users { get; set; } = default!;
+        public DbSet<GeoProfs.Models.Account> Accounts { get; set; } = default!;
     }
 }

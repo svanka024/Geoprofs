@@ -23,9 +23,9 @@ namespace GeoProfs.Pages.Users
 
         public async Task OnGetAsync()
         {
-            if (_context.User != null)
+            if (_context.Users != null)
             {
-                User = await _context.User.ToListAsync();
+                User = await _context.Users.ToListAsync();
             }
         }
     }
