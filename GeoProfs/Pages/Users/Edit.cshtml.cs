@@ -9,33 +9,33 @@ using Microsoft.EntityFrameworkCore;
 using GeoProfs.Data;
 using GeoProfs.Models;
 
-namespace GeoProfs.Pages.Students
+namespace GeoProfs.Pages.Users
 {
     public class EditModel : PageModel
     {
-        private readonly GeoProfs.Data.SchoolContext _context;
+        private readonly GeoProfs.Data.GeoProfsContext _context;
 
-        public EditModel(GeoProfs.Data.SchoolContext context)
+        public EditModel(GeoProfs.Data.GeoProfsContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Student Student { get; set; }
+        public User User { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            Student = await _context.Students.FirstOrDefaultAsync(m => m.ID == id);
-
-            if (Student == null)
+            var user =  await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            if (user == null)
             {
                 return NotFound();
             }
+            User = user;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace GeoProfs.Pages.Students
                 return Page();
             }
 
-            _context.Attach(Student).State = EntityState.Modified;
+            _context.Attach(User).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace GeoProfs.Pages.Students
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StudentExists(Student.ID))
+                if (!UserExists(User.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace GeoProfs.Pages.Students
             return RedirectToPage("./Index");
         }
 
-        private bool StudentExists(int id)
+        private bool UserExists(int id)
         {
-            return _context.Students.Any(e => e.ID == id);
+          return _context.Users.Any(e => e.Id == id);
         }
     }
 }

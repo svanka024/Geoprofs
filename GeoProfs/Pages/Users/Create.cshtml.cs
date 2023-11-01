@@ -8,35 +8,35 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using GeoProfs.Data;
 using GeoProfs.Models;
 
-namespace GeoProfs.Pages.Students
+namespace GeoProfs.Pages.Users
 {
     public class CreateModel : PageModel
     {
-        private readonly GeoProfs.Data.SchoolContext _context;
+        private readonly GeoProfs.Data.GeoProfsContext _context;
 
-        public CreateModel(GeoProfs.Data.SchoolContext context)
+        public CreateModel(GeoProfs.Data.GeoProfsContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-            Student = new Student { EnrollmentDate = DateTime.Now, FirstMidName = "Joe", LastName = "Smith" };
             return Page();
         }
 
         [BindProperty]
-        public Student Student { get; set; }
+        public User User { get; set; }
+        
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+          if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Students.Add(Student);
+            _context.Users.Add(User);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -8,48 +8,52 @@ using Microsoft.EntityFrameworkCore;
 using GeoProfs.Data;
 using GeoProfs.Models;
 
-namespace GeoProfs.Pages.Students
+namespace GeoProfs.Pages.Users
 {
     public class DeleteModel : PageModel
     {
-        private readonly GeoProfs.Data.SchoolContext _context;
+        private readonly GeoProfs.Data.GeoProfsContext _context;
 
-        public DeleteModel(GeoProfs.Data.SchoolContext context)
+        public DeleteModel(GeoProfs.Data.GeoProfsContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Student Student { get; set; }
+      public User User { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            Student = await _context.Students.FirstOrDefaultAsync(m => m.ID == id);
+            var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Student == null)
+            if (user == null)
             {
                 return NotFound();
+            }
+            else 
+            {
+                User = user;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
+            var user = await _context.Users.FindAsync(id);
 
-            Student = await _context.Students.FindAsync(id);
-
-            if (Student != null)
+            if (user != null)
             {
-                _context.Students.Remove(Student);
+                User = user;
+                _context.Users.Remove(User);
                 await _context.SaveChangesAsync();
             }
 
