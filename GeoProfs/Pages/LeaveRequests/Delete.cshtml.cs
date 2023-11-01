@@ -8,48 +8,52 @@ using Microsoft.EntityFrameworkCore;
 using GeoProfs.Data;
 using GeoProfs.Models;
 
-namespace GeoProfs.Pages.Students
+namespace GeoProfs.Pages.LeaveRequests
 {
     public class DeleteModel : PageModel
     {
-        private readonly GeoProfs.Data.SchoolContext _context;
+        private readonly GeoProfs.Data.GeoProfsContext _context;
 
-        public DeleteModel(GeoProfs.Data.SchoolContext context)
+        public DeleteModel(GeoProfs.Data.GeoProfsContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Student Student { get; set; }
+      public LeaveRequest LeaveRequest { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
+            if (id == null || _context.LeaveRequests == null)
             {
                 return NotFound();
             }
 
-            Student = await _context.Students.FirstOrDefaultAsync(m => m.ID == id);
+            var leaverequest = await _context.LeaveRequests.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Student == null)
+            if (leaverequest == null)
             {
                 return NotFound();
+            }
+            else 
+            {
+                LeaveRequest = leaverequest;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null)
+            if (id == null || _context.LeaveRequests == null)
             {
                 return NotFound();
             }
+            var leaverequest = await _context.LeaveRequests.FindAsync(id);
 
-            Student = await _context.Students.FindAsync(id);
-
-            if (Student != null)
+            if (leaverequest != null)
             {
-                _context.Students.Remove(Student);
+                LeaveRequest = leaverequest;
+                _context.LeaveRequests.Remove(LeaveRequest);
                 await _context.SaveChangesAsync();
             }
 

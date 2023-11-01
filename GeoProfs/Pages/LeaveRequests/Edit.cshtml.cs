@@ -9,33 +9,33 @@ using Microsoft.EntityFrameworkCore;
 using GeoProfs.Data;
 using GeoProfs.Models;
 
-namespace GeoProfs.Pages.Students
+namespace GeoProfs.Pages.LeaveRequests
 {
     public class EditModel : PageModel
     {
-        private readonly GeoProfs.Data.SchoolContext _context;
+        private readonly GeoProfs.Data.GeoProfsContext _context;
 
-        public EditModel(GeoProfs.Data.SchoolContext context)
+        public EditModel(GeoProfs.Data.GeoProfsContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Student Student { get; set; }
+        public LeaveRequest LeaveRequest { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
+            if (id == null || _context.LeaveRequests == null)
             {
                 return NotFound();
             }
 
-            Student = await _context.Students.FirstOrDefaultAsync(m => m.ID == id);
-
-            if (Student == null)
+            var leaverequest =  await _context.LeaveRequests.FirstOrDefaultAsync(m => m.Id == id);
+            if (leaverequest == null)
             {
                 return NotFound();
             }
+            LeaveRequest = leaverequest;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace GeoProfs.Pages.Students
                 return Page();
             }
 
-            _context.Attach(Student).State = EntityState.Modified;
+            _context.Attach(LeaveRequest).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace GeoProfs.Pages.Students
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StudentExists(Student.ID))
+                if (!LeaveRequestExists(LeaveRequest.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace GeoProfs.Pages.Students
             return RedirectToPage("./Index");
         }
 
-        private bool StudentExists(int id)
+        private bool LeaveRequestExists(int id)
         {
-            return _context.Students.Any(e => e.ID == id);
+          return _context.LeaveRequests.Any(e => e.Id == id);
         }
     }
 }

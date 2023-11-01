@@ -8,22 +8,25 @@ using Microsoft.EntityFrameworkCore;
 using GeoProfs.Data;
 using GeoProfs.Models;
 
-namespace GeoProfs.Pages.Students
+namespace GeoProfs.Pages.Users
 {
     public class IndexModel : PageModel
     {
-        private readonly GeoProfs.Data.SchoolContext _context;
+        private readonly GeoProfs.Data.GeoProfsContext _context;
 
-        public IndexModel(GeoProfs.Data.SchoolContext context)
+        public IndexModel(GeoProfs.Data.GeoProfsContext context)
         {
             _context = context;
         }
 
-        public IList<Student> Student { get;set; }
+        public IList<User> User { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Student = await _context.Students.ToListAsync();
+            if (_context.Users != null)
+            {
+                User = await _context.Users.ToListAsync();
+            }
         }
     }
 }

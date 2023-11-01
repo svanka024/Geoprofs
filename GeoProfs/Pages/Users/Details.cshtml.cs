@@ -8,31 +8,34 @@ using Microsoft.EntityFrameworkCore;
 using GeoProfs.Data;
 using GeoProfs.Models;
 
-namespace GeoProfs.Pages.Students
+namespace GeoProfs.Pages.Users
 {
     public class DetailsModel : PageModel
     {
-        private readonly GeoProfs.Data.SchoolContext _context;
+        private readonly GeoProfs.Data.GeoProfsContext _context;
 
-        public DetailsModel(GeoProfs.Data.SchoolContext context)
+        public DetailsModel(GeoProfs.Data.GeoProfsContext context)
         {
             _context = context;
         }
 
-        public Student Student { get; set; }
+      public User User { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            Student = await _context.Students.FirstOrDefaultAsync(m => m.ID == id);
-
-            if (Student == null)
+            var user = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
+            if (user == null)
             {
                 return NotFound();
+            }
+            else 
+            {
+                User = user;
             }
             return Page();
         }
