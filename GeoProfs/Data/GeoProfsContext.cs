@@ -16,5 +16,11 @@ namespace GeoProfs.Data
 
         public DbSet<GeoProfs.Models.User> Users { get; set; } = default!;
         public DbSet<GeoProfs.Models.Account> Accounts { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<Account>().ToTable("Account");
+        }
     }
 }

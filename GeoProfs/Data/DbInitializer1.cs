@@ -28,8 +28,8 @@ namespace GeoProfs.Data
                 new Account{Name="Iris", Password="Reijnen", Email="i.g.r@gmail.com"},
             };
 
-            //context.Courses.AddRange(courses);
-            //context.SaveChanges();
+            context.Accounts.AddRange(accounts);
+            context.SaveChanges();
 
             //var enrollments = new Enrollment[]
             //{
