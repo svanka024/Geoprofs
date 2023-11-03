@@ -21,7 +21,7 @@ namespace GeoProfs.Data
         public DbSet<GeoProfs.Models.Department> Departments { get; set; }
         public DbSet<GeoProfs.Models.Position> Positions { get; set; }
         public DbSet<GeoProfs.Models.Reason> Reasons { get; set; }
-        public DbSet<GeoProfs.Models.Manager> Managers { get; set; }
+        //public DbSet<GeoProfs.Models.Manager> Managers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,13 +32,7 @@ namespace GeoProfs.Data
             modelBuilder.Entity<Department>().ToTable("Department");
             modelBuilder.Entity<Position>().ToTable("Position");
             modelBuilder.Entity<Reason>().ToTable("Reason");
-            modelBuilder.Entity<Manager>().ToTable("Manager");
+            //modelBuilder.Entity<Manager>().ToTable("Manager");
         }
-        
-
-        
-
-
-        
     }
 }
