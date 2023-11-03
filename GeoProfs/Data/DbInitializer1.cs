@@ -39,6 +39,16 @@ namespace GeoProfs.Data
             context.LeaveRequests.AddRange(leaveRequests);
             context.SaveChanges();
 
+            var statuses = new Status[]
+            {
+                new Status{Name="In Behandeling"},
+                new Status{Name="Afgekeurd"},
+                new Status{Name="Goed gekeurd"},
+            };
+
+            context.Statuses.AddRange(statuses);
+            context.SaveChanges();
+
             //var enrollments = new Enrollment[]
             //{
             //    new Enrollment{StudentID=1,CourseID=1050,Grade=Grade.A},
