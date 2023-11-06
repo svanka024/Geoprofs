@@ -53,20 +53,15 @@ namespace GeoProfs.Pages.LeaveRequests
                 return Page();
             }
 
-            var existingLeaveRequest = await _context.LeaveRequests
-                .AsNoTracking() // Prevents tracking the entity to avoid conflict issues
-                .FirstOrDefaultAsync(m => m.Id == LeaveRequest.Id);
+            var existingLeaveRequest = await _context.LeaveRequests.FindAsync(LeaveRequest.Id);
 
             if (existingLeaveRequest == null)
             {
                 return NotFound();
             }
 
-            // Apply model binding restrictions
-            _context.Entry(existingLeaveRequest).CurrentValues.SetValues(LeaveRequest);
-            _context.Entry(existingLeaveRequest).Property("Status").IsModified = true; // Only allow updating Status
-
-            //_context.Attach(LeaveRequest).State = EntityState.Modified;
+            // Update the properties of the existingLeaveRequest with values from LeaveRequest
+            existingLeaveRequest.Status = LeaveRequest.Status;
 
             try
             {

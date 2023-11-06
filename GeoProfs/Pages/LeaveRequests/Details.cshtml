@@ -30,6 +30,7 @@
     <!--add a dropdown menu with the items coming from the table Status.-->
     <div>
         <!-- Dropdown menu with items from the "Status" table -->
+        <form method="post">
         <div class="form-group">
             <label asp-for="LeaveRequest.Status" class="control-label"></label>
             <select asp-for="LeaveRequest.Status" class="form-control">
@@ -40,7 +41,6 @@
                 }
             </select>
         </div>
-        <form method="post">
             @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-primary">Change Status</button>
         </form>
