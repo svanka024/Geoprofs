@@ -22,7 +22,7 @@ namespace GeoProfs.Pages.LeaveRequests
 
         [BindProperty]
         public LeaveRequest LeaveRequest { get; set; } = default!;
-        public List<Status> StatusItems { get; set; }
+        public List<SelectListItem> StatusItems { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -37,7 +37,9 @@ namespace GeoProfs.Pages.LeaveRequests
                 return NotFound();
             }
             LeaveRequest = leaverequest;
-            StatusItems = await _context.Statuses.ToListAsync();
+            StatusItems = _context.Statuses
+                .Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Name })
+                .ToList();
             return Page();
         }
 
