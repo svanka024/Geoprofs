@@ -21,12 +21,17 @@ namespace GeoProfs.Pages.LeaveRequests
 
         public IActionResult OnGet()
         {
+            ReasonTypes = _context.Reasons
+                  .Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Name })
+                  .ToList();
+
             return Page();
         }
 
         [BindProperty]
         public LeaveRequest LeaveRequest { get; set; }
-        
+        public List<SelectListItem> ReasonTypes { get; set; }
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -39,7 +44,7 @@ namespace GeoProfs.Pages.LeaveRequests
             _context.LeaveRequests.Add(LeaveRequest);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./../Shared/_Layout");
         }
     }
 }
