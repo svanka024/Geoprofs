@@ -7,7 +7,8 @@
         public User Manager { get; set; }
         public Reason Reason { get; set; }
         public Status Status { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime DateStart { get; set; }
+        public DateTime DateEnd { get; set; }
         public string Description { get; set; }
     }
 }

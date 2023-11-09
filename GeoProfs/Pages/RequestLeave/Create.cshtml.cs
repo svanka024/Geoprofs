@@ -36,15 +36,19 @@ namespace GeoProfs.Pages.LeaveRequests
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return Page();
             }
 
+            firstStatus = _context.Statuses
+                  .Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Name })
+                  .ToList();
+
             _context.LeaveRequests.Add(LeaveRequest);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./../Shared/_Layout");
+            return RedirectToPage("./Create");
         }
     }
 }

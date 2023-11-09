@@ -17,34 +17,32 @@
                 <hr>
                 <div class="">
                     <p class ="d-flex justify-content-center">Leave type</p>
-                    <div class="d-flex justify-content-betweend"></div>
-                    
-                    <label asp-for="LeaveRequest.Reason" class="control-label"></label>
-                    <select asp-for="LeaveRequest.Reason.Id" asp-items="Model.ReasonTypes" class="form-control">
-                    </select>
-                    
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-center">
-                        <form>
-                            <label for="aInfo">Additional info:</label><br>
-                            <textarea id="aInfo" rows="4" cols="50"></textarea>
-                        </form>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-center">
-                        <form>
-                            <label for="datemin">Start:</label><br>
-                            <input type="date" id="datemin" name="datemin" min="2023-00-00"><br>
-                        </form>
-                        <form>
-                            <label for="datemax">End:</label><br>
-                            <input type="date" id="datemin" name="datemax" min="2023-00-00"><br>
-                        </form>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <input type="submit" value="Submit">
-                    </div>
+                    <form method="post">
+                        
+                        <div class="d-flex justify-content-betweend"></div>
+                        <div class="d-flex justify-content-center">
+
+                        <label asp-for="LeaveRequest.Reason" class="control-label"></label>
+                        <select asp-for="LeaveRequest.Reason" asp-items="Model.ReasonTypes" class="form-control">
+                        </select>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <label asp-for="LeaveRequest.Description">Additional info:</label><br>
+                            <textarea asp-for="LeaveRequest.Description" rows="4" cols="50"></textarea>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <label asp-for="LeaveRequest.DateStart">Start:</label><br>
+                            <input type="date" asp-for="LeaveRequest.DateStart" name="datemin" min="2023-00-00"><br>
+                            <label asp-for="LeaveRequest.DateEnd">End:</label><br>
+                            <input type="date" asp-for="LeaveRequest.DateEnd" name="datemax" min="2023-00-00"><br>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

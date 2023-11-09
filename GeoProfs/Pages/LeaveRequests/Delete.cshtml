@@ -13,10 +13,16 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LeaveRequest.Date)
+            @Html.DisplayNameFor(model => model.LeaveRequest.DateStart)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LeaveRequest.Date)
+            @Html.DisplayFor(model => model.LeaveRequest.DateStart)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeaveRequest.DateEnd)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeaveRequest.DateEnd)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.LeaveRequest.Description)
