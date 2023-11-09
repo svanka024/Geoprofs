@@ -17,6 +17,9 @@
                 @Html.DisplayNameFor(model => model.LeaveRequest[0].DateEnd)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.LeaveRequest[0].Reason)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.LeaveRequest[0].Description)
             </th>
             <th>
@@ -29,10 +32,13 @@
 @foreach (var item in Model.LeaveRequest) {
         <tr>
             <td>
-                    @Html.DisplayFor(modelItem => item.DateStart)
+                @Html.DisplayFor(modelItem => item.DateStart)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reason.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
