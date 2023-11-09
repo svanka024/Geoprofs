@@ -61,7 +61,7 @@ namespace GeoProfs.Pages.LeaveRequests
             _context.LeaveRequests.Add(LeaveRequest);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Create");
+            return RedirectToPage("./Index");
         }
     }
 }

@@ -26,20 +26,20 @@
                             {
                                 <div class="form-check">
                                     <input asp-for="LeaveRequest.Reason" type="radio" value="@reasonType.Value" id="reasonType_@reasonType.Value" class="form-check-input">
-                                    <label asp-for="reasonType_@reasonType.Value" class="form-check-label">@reasonType.Text</label>
+                                    <label asp-for="reasonType_@reasonType.Value" class="form-check-label" style="margin-right: 10px;"> @reasonType.Text </label>
                                 </div>
                             }
                         </div>
                         <hr>
                         <div class="d-flex justify-content-center">
-                            <label asp-for="LeaveRequest.Description">Additional info:</label><br>
+                            <label asp-for="LeaveRequest.Description">Additional info: </label><br>
                             <textarea asp-for="LeaveRequest.Description" rows="4" cols="50"></textarea>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-center">
-                            <label asp-for="LeaveRequest.DateStart">Start:</label><br>
+                            <label asp-for="LeaveRequest.DateStart" style="margin-right: 10px;"> Start: </label><br>
                             <input type="date" asp-for="LeaveRequest.DateStart" ><br>
-                            <label asp-for="LeaveRequest.DateEnd">End:</label><br>
+                            <label asp-for="LeaveRequest.DateEnd" style="margin-right: 10px; margin-left: 10px;"> End: </label><br>
                             <input type="date" asp-for="LeaveRequest.DateEnd" ><br>
                         </div>
                         <hr>
@@ -63,9 +63,9 @@
     </optgroup>
 </select> *@
 
-<div>
+@*<div>
     <a asp-page="Index">Back to List</a>
-</div>
+</div> *@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
