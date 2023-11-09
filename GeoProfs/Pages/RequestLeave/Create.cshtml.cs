@@ -25,6 +25,11 @@ namespace GeoProfs.Pages.LeaveRequests
                   .Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Name })
                   .ToList();
 
+            LeaveRequest = new LeaveRequest
+            {
+                Status = _context.Statuses.FirstOrDefault()
+            };
+
             return Page();
         }
 
@@ -41,9 +46,17 @@ namespace GeoProfs.Pages.LeaveRequests
                 return Page();
             }
 
-            firstStatus = _context.Statuses
-                  .Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Name })
-                  .ToList();
+            if (int.TryParse(Request.Form["LeaveRequest.Reason"], out int selectedReasonId))
+            {
+                LeaveRequest.Reason = _context.Reasons.Find(selectedReasonId);
+            }
+            else
+            {
+                ModelState.AddModelError("LeaveRequest.Reason", "Please select a reason.");
+                return Page();
+            }
+
+            LeaveRequest.Status = _context.Statuses.FirstOrDefault();
 
             _context.LeaveRequests.Add(LeaveRequest);
             await _context.SaveChangesAsync();

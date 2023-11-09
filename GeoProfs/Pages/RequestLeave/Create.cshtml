@@ -21,10 +21,14 @@
                         
                         <div class="d-flex justify-content-betweend"></div>
                         <div class="d-flex justify-content-center">
-
-                        <label asp-for="LeaveRequest.Reason" class="control-label"></label>
-                        <select asp-for="LeaveRequest.Reason" asp-items="Model.ReasonTypes" class="form-control">
-                        </select>
+                        
+                            @foreach (var reasonType in Model.ReasonTypes)
+                            {
+                                <div class="form-check">
+                                    <input asp-for="LeaveRequest.Reason" type="radio" value="@reasonType.Value" id="reasonType_@reasonType.Value" class="form-check-input">
+                                    <label asp-for="reasonType_@reasonType.Value" class="form-check-label">@reasonType.Text</label>
+                                </div>
+                            }
                         </div>
                         <hr>
                         <div class="d-flex justify-content-center">
@@ -34,9 +38,9 @@
                         <hr>
                         <div class="d-flex justify-content-center">
                             <label asp-for="LeaveRequest.DateStart">Start:</label><br>
-                            <input type="date" asp-for="LeaveRequest.DateStart" name="datemin" min="2023-00-00"><br>
+                            <input type="date" asp-for="LeaveRequest.DateStart" name="datemin" min="2023-01-01"><br>
                             <label asp-for="LeaveRequest.DateEnd">End:</label><br>
-                            <input type="date" asp-for="LeaveRequest.DateEnd" name="datemax" min="2023-00-00"><br>
+                            <input type="date" asp-for="LeaveRequest.DateEnd" name="datemax" min="2023-01-01"><br>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-center">
