@@ -25,38 +25,10 @@ namespace GeoProfs.Data
 
             var accounts = new Account[]
             {
-                //new Account{Name="Iris", Password="Reijnen", Email="i.g.r@gmail.com"},
+                new Account{Name="Iris", Password="Reijnen", Email="i.g.r@gmail.com"},
             };
 
             context.Accounts.AddRange(accounts);
-            context.SaveChanges();
-
-            var leaveRequests = new LeaveRequest[]
-            {
-                //new LeaveRequest{Description="Test"},
-            };
-
-            context.LeaveRequests.AddRange(leaveRequests);
-            context.SaveChanges();
-
-            var statuses = new Status[]
-            {
-                //new Status{Name="In Behandeling"},
-                //new Status{Name="Afgekeurd"},
-                //new Status{Name="Goed gekeurd"},
-            };
-
-            context.Statuses.AddRange(statuses);
-            context.SaveChanges();
-
-            var reasons = new Reason[]
-            {
-                new Reason{Name="Sick"},
-                new Reason{Name="Vacation"},
-                new Reason{Name="Personal"},
-            };
-
-            context.Reasons.AddRange(reasons);
             context.SaveChanges();
 
             //var enrollments = new Enrollment[]

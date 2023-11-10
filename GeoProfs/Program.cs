@@ -7,8 +7,6 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<GeoProfsContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("GeoProfsContext") ?? throw new InvalidOperationException("Connection string 'GeoProfsContext' not found.")));
 
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
