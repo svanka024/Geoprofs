@@ -26,7 +26,7 @@
                             {
                                 <div class="form-check">
                                     <input asp-for="LeaveRequest.Reason" type="radio" value="@reasonType.Value" id="reasonType_@reasonType.Value" class="form-check-input">
-                                    <label asp-for="reasonType_@reasonType.Value" class="form-check-label" style="margin-right: 10px;"> @reasonType.Text </label>
+                                    <label asp-for="reasonType_@reasonType.Value" class="form-check-label" > @reasonType.Text </label>
                                 </div>
                             }
                         </div>
@@ -37,10 +37,10 @@
                         </div>
                         <hr>
                         <div class="d-flex justify-content-center">
-                            <label asp-for="LeaveRequest.DateStart" style="margin-right: 10px;"> Start: </label><br>
-                            <input type="date" asp-for="LeaveRequest.DateStart" ><br>
-                            <label asp-for="LeaveRequest.DateEnd" style="margin-right: 10px; margin-left: 10px;"> End: </label><br>
-                            <input type="date" asp-for="LeaveRequest.DateEnd" ><br>
+                            <label asp-for="LeaveRequest.DateStart" > Start: </label><br>
+                            <input type="date" asp-for="LeaveRequest.DateStart" class="form-control"><br>
+                            <label asp-for="LeaveRequest.DateEnd" > End: </label><br>
+                            <input type="date" asp-for="LeaveRequest.DateEnd" class="form-control"><br>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-center">

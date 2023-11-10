@@ -30,26 +30,15 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.LeaveRequest.Description)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeaveRequest.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeaveRequest.Status.Name)
+        </dd>
     </dl>
 </div>
 <div>
-    <!--add a dropdown menu with the items coming from the table Status.-->
-    <div>
-        <!-- Dropdown menu with items from the "Status" table -->
-        <form method="post">
-        <div class="form-group">
-            <label asp-for="LeaveRequest.Status" class="control-label"></label>
-            <select asp-for="LeaveRequest.Status" class="form-control">
-                <option value="">Select Status</option>
-                @foreach (var status in Model.StatusItems)
-                {
-                    <option value="@status.Id">@status.Name</option>
-                }
-            </select>
-        </div>
-            @Html.AntiForgeryToken()
-            <button type="submit" class="btn btn-primary">Change Status</button>
-        </form>
-    </div>
+    <a asp-page="./Edit" asp-route-id="@Model.LeaveRequest?.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
