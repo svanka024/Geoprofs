@@ -47,7 +47,12 @@
                 @Html.DisplayFor(modelItem => item.Status.Name)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                @*<form>
+                        <label asp-for="modelItem => item.Status" class="control-label"></label>
+                    <select asp-for="LeaveRequest.Status.Id" asp-items="Model.StatusItems" class="form-control">
+                </select>
+                <input type="submit" value="Save" class="btn btn-primary" />
+                </form>*@|
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
                 

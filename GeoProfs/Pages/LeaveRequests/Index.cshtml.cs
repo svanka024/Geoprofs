@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using GeoProfs.Data;
 using GeoProfs.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GeoProfs.Pages.LeaveRequests
 {
@@ -20,6 +21,7 @@ namespace GeoProfs.Pages.LeaveRequests
         }
 
         public IList<LeaveRequest> LeaveRequest { get;set; } = default!;
+        public List<SelectListItem> StatusItems { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -27,6 +29,9 @@ namespace GeoProfs.Pages.LeaveRequests
             {
                 LeaveRequest = await _context.LeaveRequests.Include(lr => lr.Reason).Include(lr => lr.Status).ToListAsync();
             }
+            StatusItems = _context.Statuses
+                .Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Name })
+                .ToList();
         }
     }
 }
