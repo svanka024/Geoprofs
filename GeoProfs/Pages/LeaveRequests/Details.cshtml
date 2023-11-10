@@ -1,0 +1,55 @@
+﻿@page
+@model GeoProfs.Pages.LeaveRequests.DetailsModel
+@using GeoProfs.Models
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>LeaveRequest</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeaveRequest.DateStart)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeaveRequest.DateStart)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeaveRequest.DateEnd)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeaveRequest.DateEnd)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LeaveRequest.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LeaveRequest.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <!--add a dropdown menu with the items coming from the table Status.-->
+    <div>
+        <!-- Dropdown menu with items from the "Status" table -->
+        <form method="post">
+        <div class="form-group">
+            <label asp-for="LeaveRequest.Status" class="control-label"></label>
+            <select asp-for="LeaveRequest.Status" class="form-control">
+                <option value="">Select Status</option>
+                @foreach (var status in Model.StatusItems)
+                {
+                    <option value="@status.Id">@status.Name</option>
+                }
+            </select>
+        </div>
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-primary">Change Status</button>
+        </form>
+    </div>
+    <a asp-page="./Index">Back to List</a>
+</div>

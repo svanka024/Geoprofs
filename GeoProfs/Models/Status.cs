@@ -1,4 +1,4 @@
-namespace GeoProfs.Models
+﻿namespace GeoProfs.Models
 {
     public class Status
     {
