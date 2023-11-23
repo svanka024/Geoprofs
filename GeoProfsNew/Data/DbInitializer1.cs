@@ -11,10 +11,10 @@ namespace WebApplication1.Data
         public static void Initialize(ApplicationDbContext context)
         {
             //Look for any users.
-            //if (context.Users.Any())
-            //{
-            //    return;   // DB has been seeded
-            //}
+            if (context.Users.Any())
+            {
+                return;   // DB has been seeded
+            }
 
             var users = new User[]
             {
