@@ -4,6 +4,7 @@ using GeoProfsNew.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeoProfsNew.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231123143535_UpdateIdentity2")]
+    partial class UpdateIdentity2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,29 +102,6 @@ namespace GeoProfsNew.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("LeaveRequest");
-                });
-
-            modelBuilder.Entity("GeoProfsNew.Models.Manager", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ManagerIdId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.HasIndex("ManagerIdId");
-
-                    b.ToTable("Manager");
                 });
 
             modelBuilder.Entity("GeoProfsNew.Models.Position", b =>
@@ -433,21 +412,6 @@ namespace GeoProfsNew.Data.Migrations
                     b.Navigation("Status");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("GeoProfsNew.Models.Manager", b =>
-                {
-                    b.HasOne("GeoProfsNew.Models.Department", "Department")
-                        .WithMany()
-                        .HasForeignKey("DepartmentId");
-
-                    b.HasOne("GeoProfsNew.Models.User", "ManagerId")
-                        .WithMany()
-                        .HasForeignKey("ManagerIdId");
-
-                    b.Navigation("Department");
-
-                    b.Navigation("ManagerId");
                 });
 
             modelBuilder.Entity("GeoProfsNew.Models.User", b =>
