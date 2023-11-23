@@ -31,11 +31,13 @@
     <tbody>
 @foreach (var item in Model.LeaveRequest) {
         <tr>
+                @{ var startdateOnly = DateOnly.FromDateTime(item.DateStart);}
             <td>
-                @Html.DisplayFor(modelItem => item.DateStart)
+                @startdateOnly
             </td>
+                @{ var endDateOnly = DateOnly.FromDateTime(item.DateEnd);}
             <td>
-                @Html.DisplayFor(modelItem => item.DateEnd)
+                @endDateOnly
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Reason.Name)
