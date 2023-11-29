@@ -20,12 +20,17 @@ namespace GeoProfs.Pages.Users
         }
 
         public IList<User> User { get;set; } = default!;
+        public IList<LeaveRequest> LeaveRequest { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
             if (_context.Users != null)
             {
                 User = await _context.Users.ToListAsync();
+            }
+            if (_context.LeaveRequests != null)
+            {
+                LeaveRequest = await _context.LeaveRequests.Include(lr => lr.Reason).Include(lr => lr.Status).ToListAsync();
             }
         }
     }
