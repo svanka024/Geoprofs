@@ -9,6 +9,9 @@
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 	  <DefineConstants>$(DefineConstants)TRACE;SQLiteVersion</DefineConstants>
 	</PropertyGroup>
+	<ItemGroup>
+	  <Content Remove="Pages\Shared\_LeaveRequests.cshtml" />
+	</ItemGroup>
 	
   <ItemGroup>
 	  <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.0" />
@@ -19,6 +22,18 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Shared\_LeaveRequests.cshtml" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Shared\_LeaveRequests.cshtml" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <None Include="Pages\Shared\_LeaveRequests.cshtml" />
   </ItemGroup>
 
 </Project>
