@@ -1,0 +1,64 @@
+﻿@page
+@model GeoProfsNew.Pages.LeaveRequests.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Inbox</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveRequest[0].DateStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveRequest[0].DateEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveRequest[0].Reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveRequest[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveRequest[0].Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.LeaveRequest) {
+        <tr>
+                @{
+                    var startDateOnly = DateOnly.FromDateTime(item.DateStart);
+                }
+            <td>
+                @startDateOnly
+            </td>
+                @{
+                    var endDateOnly = DateOnly.FromDateTime(item.DateEnd);
+                }
+            <td>
+                @endDateOnly
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reason.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
