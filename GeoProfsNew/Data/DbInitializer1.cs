@@ -11,54 +11,54 @@ namespace WebApplication1.Data
         public static void Initialize(ApplicationDbContext context)
         {
             //Look for any users.
-            if (context.Users.Any())
-            {
-                return;   // DB has been seeded
-            }
+            //if (context.Users.Any())
+            //{
+            //    return;   // DB has been seeded
+            //}
 
-            var users = new User[]
-            {
-                //new User{FirstName="Carson",LastName="Alexander",DateService=DateTime.Parse("2019-09-01")},
-            };
+            //var users = new User[]
+            //{
+            //    //new User{FirstName="Carson",LastName="Alexander",DateService=DateTime.Parse("2019-09-01")},
+            //};
 
-            context.Users.AddRange(users);
-            context.SaveChanges();
+            //context.Users.AddRange(users);
+            //context.SaveChanges();
 
-            var accounts = new Account[]
-            {
-                //new Account{Name="Iris", Password="Reijnen", Email="i.g.r@gmail.com"},
-            };
+            //var accounts = new Account[]
+            //{
+            //    //new Account{Name="Iris", Password="Reijnen", Email="i.g.r@gmail.com"},
+            //};
 
-            context.Accounts.AddRange(accounts);
-            context.SaveChanges();
+            //context.Accounts.AddRange(accounts);
+            //context.SaveChanges();
 
-            var leaveRequests = new LeaveRequest[]
-            {
-                //new LeaveRequest{Description="Test"},
-            };
+            //var leaveRequests = new LeaveRequest[]
+            //{
+            //    //new LeaveRequest{Description="Test"},
+            //};
 
-            context.LeaveRequests.AddRange(leaveRequests);
-            context.SaveChanges();
+            //context.LeaveRequests.AddRange(leaveRequests);
+            //context.SaveChanges();
 
-            var statuses = new Status[]
-            {
-                new Status{Name="In Behandeling"},
-                new Status{Name="Afgekeurd"},
-                new Status{Name="Goed gekeurd"},
-            };
+            //var statuses = new Status[]
+            //{
+            //    new Status{Name="In Behandeling"},
+            //    new Status{Name="Afgekeurd"},
+            //    new Status{Name="Goed gekeurd"},
+            //};
 
-            context.Statuses.AddRange(statuses);
-            context.SaveChanges();
+            //context.Statuses.AddRange(statuses);
+            //context.SaveChanges();
 
-            var reasons = new Reason[]
-            {
-                new Reason{Name="Sick"},
-                new Reason{Name="Vacation"},
-                new Reason{Name="Personal"},
-            };
+            //var reasons = new Reason[]
+            //{
+            //    new Reason{Name="Sick"},
+            //    new Reason{Name="Vacation"},
+            //    new Reason{Name="Personal"},
+            //};
 
-            context.Reasons.AddRange(reasons);
-            context.SaveChanges();
+            //context.Reasons.AddRange(reasons);
+            //context.SaveChanges();
 
             //var enrollments = new Enrollment[]
             //{
