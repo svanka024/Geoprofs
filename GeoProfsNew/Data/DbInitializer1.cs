@@ -11,7 +11,7 @@ namespace WebApplication1.Data
         public static void Initialize(ApplicationDbContext context)
         {
             //Look for any users.
-            if (context.Users.Any())
+            if (context.Statuses.Any())
             {
                 return;   // DB has been seeded
             }
@@ -44,7 +44,7 @@ namespace WebApplication1.Data
             {
                 new Status{Name="In Behandeling"},
                 new Status{Name="Afgekeurd"},
-                new Status{Name="Goed gekeurd"},
+                new Status{Name="Goedgekeurd"},
             };
 
             context.Statuses.AddRange(statuses);
