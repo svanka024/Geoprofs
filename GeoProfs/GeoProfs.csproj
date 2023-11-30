@@ -31,9 +31,5 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\Shared\_LeaveRequests.cshtml" />
   </ItemGroup>
-	
-  <ItemGroup>
-    <None Include="Pages\Shared\_LeaveRequests.cshtml" />
-  </ItemGroup>
 
 </Project>

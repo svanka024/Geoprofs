@@ -5,17 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GeoProfs.Pages.Shared
 {
-    public class _LeaveRequestsModel : PageModel
+    public class _LeaveRequestModel : PageModel
     {
         private readonly GeoProfs.Data.GeoProfsContext _context;
 
-        public _LeaveRequestsModel(GeoProfs.Data.GeoProfsContext context)
+        public _LeaveRequestModel(GeoProfs.Data.GeoProfsContext context)
         {
             _context = context;
         }
-
         public IList<LeaveRequest> LeaveRequest { get; set; } = default!;
-
         public async Task OnGetAsync()
         {
             if (_context.LeaveRequests != null) {
