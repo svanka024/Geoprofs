@@ -1,4 +1,4 @@
-﻿namespace GeoProfs.Models
+﻿namespace GeoProfsNew.Models
 {
     public class LeaveRequest
     {
