@@ -11,10 +11,22 @@ namespace GeoProfsNew.Pages
         {
             _logger = logger;
         }
-
-        public void OnGet()
+    }   
+    
+    public class saldi
+    {
+        public class vakantiesaldi
         {
-
+            Console.WriteLine($"vakantiesaldi");
+        }
+        public class gebruiktesaldi
+        {
+            Console.WriteLine($"gebruiktesaldi");
+        }
+        public class totaalsaldi
+        {
+            Console.WriteLine($"totaalsaldi");
         }
     }
 }
+
