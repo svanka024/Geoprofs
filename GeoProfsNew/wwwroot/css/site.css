@@ -21,6 +21,8 @@ label {
     margin-right: 10px;
     margin-left: 10px;
 }
+
+/* inbox pagina*/
 .tablinks {
     margin-top: 3px;
     border: none;
@@ -45,4 +47,28 @@ label {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.collapsible {
+    color: white;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+    .active, .collapsible:hover {
+        background-color: #555;
+    }
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+.tabcell {
+    background-co
 }
