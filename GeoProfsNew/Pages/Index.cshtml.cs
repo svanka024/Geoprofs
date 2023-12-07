@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using System.Data.Entity;
 
 namespace GeoProfsNew.Pages
 {
@@ -11,21 +13,21 @@ namespace GeoProfsNew.Pages
         {
             _logger = logger;
         }
-    }   
-    
+    }
+
+
+    public class ApplicationDbContext : DbContext
+    {
+        public ApplicationDbContext() : base("VacationDays") { }
+
+        public DbSet<VacationDays> YourModels { get; set; }
+    }
     public class saldi
     {
         public class vakantiesaldi
         {
-            Console.WriteLine($"vakantiesaldi");
-        }
-        public class gebruiktesaldi
-        {
-            Console.WriteLine($"gebruiktesaldi");
-        }
-        public class totaalsaldi
-        {
-            Console.WriteLine($"totaalsaldi");
+            public int Id { get; set; }
+            public decimal saldi { get; set; }
         }
     }
 }
