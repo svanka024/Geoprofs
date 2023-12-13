@@ -10,6 +10,14 @@ namespace WebApplication1.Data
     {
         public static void Initialize(ApplicationDbContext context)
         {
+            //var positions = new Position[]
+            //{
+            //    new Position{Name="Werknemer"},
+            //    new Position{Name="Manager"}
+            //};
+
+            //context.Positions.AddRange(positions);
+            //context.SaveChanges();
             //Look for any users.
             if (context.Statuses.Any())
             {
