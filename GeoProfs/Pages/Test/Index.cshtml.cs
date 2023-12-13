@@ -1,22 +1,32 @@
-using GeoProfs.Models;
+//using GeoProfs.Models;
+//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.AspNetCore.Mvc.RazorPages;
+//using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using GeoProfs.Data;
+using GeoProfs.Models;
 
-namespace GeoProfs.Pages.Shared
+namespace GeoProfs.Pages.Test
 {
     public class _LeaveRequestModel : PageModel
     {
-        private readonly GeoProfs.Data.GeoProfsContext _context;
+        private readonly GeoProfsContext _context;
 
-        public _LeaveRequestModel(GeoProfs.Data.GeoProfsContext context)
+        public _LeaveRequestModel(GeoProfsContext context)
         {
             _context = context;
         }
         public IList<LeaveRequest> LeaveRequest { get; set; } = default!;
         public async Task OnGetAsync()
         {
-            if (_context.LeaveRequests != null) {
+            if (_context.LeaveRequests != null)
+            {
                 LeaveRequest = await _context.LeaveRequests.Include(lr => lr.Reason).Include(lr => lr.Status).ToListAsync();
             }
         }

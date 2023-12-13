@@ -12,14 +12,14 @@ namespace GeoProfs.Pages.LeaveRequests
 {
     public class IndexModel : PageModel
     {
-        private readonly GeoProfs.Data.GeoProfsContext _context;
+        private readonly GeoProfsContext _context;
 
-        public IndexModel(GeoProfs.Data.GeoProfsContext context)
+        public IndexModel(GeoProfsContext context)
         {
             _context = context;
         }
 
-        public IList<LeaveRequest> LeaveRequest { get;set; } = default!;
+        public IList<LeaveRequest> LeaveRequest { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
