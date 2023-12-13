@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Threading.Tasks;
 using GeoProfsNew.Models;
 
 namespace GeoProfsNew.Pages.Manager
@@ -25,16 +26,16 @@ namespace GeoProfsNew.Pages.Manager
         [BindProperty]
         public string Role { get; set; }
 
-        public List<SelectListItem> Users { get; set; }
-        public List<SelectListItem> Roles { get; set; }
+        public List<SelectListItem> AllUsers { get; set; }
+        public List<SelectListItem> AllRoles { get; set; }
 
         public void OnGet()
         {
             // Populate the Users dropdown
-            Users = _userManager.Users.Select(u => new SelectListItem { Value = u.Id.ToString(), Text = u.UserName }).ToList();
+            AllUsers = _userManager.Users.Select(u => new SelectListItem { Value = u.Id, Text = u.UserName }).ToList();
 
             // Populate the Roles dropdown
-            Roles = _roleManager.Roles.Select(r => new SelectListItem { Value = r.Name, Text = r.Name }).ToList();
+            AllRoles = _roleManager.Roles.Select(r => new SelectListItem { Value = r.Name, Text = r.Name }).ToList();
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -52,7 +53,7 @@ namespace GeoProfsNew.Pages.Manager
             await _userManager.AddToRoleAsync(user, Role);
 
             TempData["SuccessMessage"] = $"Role for {user.UserName} changed to {Role}";
-            return RedirectToPage("/Admin/ChangeUserRole");
+            return RedirectToPage("/Manager/ChangeUserRole");
         }
     }
 }
