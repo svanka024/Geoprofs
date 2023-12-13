@@ -14,9 +14,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // Replace IdentityUser with your custom user model (e.g., ApplicationUser)
-builder.Services.AddIdentity<User, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
@@ -51,5 +53,36 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+    var roles = new[] { "Member", "Manager", "Admin" };
+
+    foreach (var role in roles)
+    {
+        if(!await roleManager.RoleExistsAsync(role))
+            await roleManager.CreateAsync(new IdentityRole(role));
+    }
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+
+    string email = "admin@admin";
+    string password = "Test123!";
+
+    if(await userManager.FindByEmailAsync(email) == null)
+    {
+        var user = new User();
+        user.UserName = email;
+        user.Email = email;
+        
+        await userManager.CreateAsync(user, password);
+        await userManager.AddToRoleAsync(user, "Manager");
+    }
+}
 
 app.Run();

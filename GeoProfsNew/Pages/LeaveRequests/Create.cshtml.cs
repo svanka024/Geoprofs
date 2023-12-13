@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using GeoProfsNew.Models;
 using GeoProfsNew.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace GeoProfsNew.Pages.LeaveRequests
 {
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<User> _userManager;
 
-        public CreateModel(ApplicationDbContext context)
+        public CreateModel(ApplicationDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult OnGet()
@@ -56,7 +59,10 @@ namespace GeoProfsNew.Pages.LeaveRequests
                 return Page();
             }
 
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+
             LeaveRequest.Status = _context.Statuses.FirstOrDefault();
+            LeaveRequest.User = currentUser;
 
             _context.LeaveRequests.Add(LeaveRequest);
             await _context.SaveChangesAsync();
