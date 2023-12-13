@@ -12,4 +12,11 @@
 
         <button type="submit" class="btn btn-primary">Change Role</button>
     </form>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
 }
