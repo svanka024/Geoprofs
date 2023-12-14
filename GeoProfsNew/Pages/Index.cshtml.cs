@@ -12,19 +12,17 @@ namespace GeoProfsNew.Pages
         {
             _logger = logger;
         }
-    }
 
-
-    public class ApplicationDbContext : DbContext
-    {
-        
-    }
-    public class saldi
-    {
-        public class vakantiesaldi
+        public void OnGet()
         {
-            public int Id { get; set; }
-            public decimal saldi { get; set; }
+            try
+            {
+                string connectionString = "";
+            }
+            catch (Exception ex) 
+            { 
+
+            }
         }
     }
 }
