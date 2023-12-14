@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using GeoProfsNew.Data;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using GeoProfsNew.Data.Migrations;
+using System.Data;
 
 namespace GeoProfsNew.Pages
 {
@@ -51,6 +53,7 @@ namespace GeoProfsNew.Pages
             _context.LeaveRequests.Add(LeaveRequest);
             await _context.SaveChangesAsync();
 
+            TempData["SuccessMessage"] = $"Reported sick";
             return RedirectToPage("./Index");
         }
     }

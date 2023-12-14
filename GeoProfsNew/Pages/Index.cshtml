@@ -51,6 +51,12 @@
                         <input type="submit" value="I am sick today" class="btn btn-primary" />
                     </div>
                     </form>
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @TempData["SuccessMessage"]
+                        </div>
+                    }
                 </div>
             </div>
         </div>
