@@ -1,14 +1,11 @@
 using GeoProfs.Data;
 using GeoProfs.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-
-namespace GeoProfs.Code_Dump
+namespace GeoProfs.Pages.Shared
 {
-    public class _LeaveRequestModel : PageModel
-    {
+    public class _LeaveRequestModel : PageModel {
         private readonly GeoProfsContext _context;
 
         public _LeaveRequestModel(GeoProfsContext context)
@@ -20,8 +17,7 @@ namespace GeoProfs.Code_Dump
 
         public async Task OnGetAsync()
         {
-            if (_context.LeaveRequests != null)
-            {
+            if (_context.LeaveRequests != null) {
                 LeaveRequest = await _context.LeaveRequests.Include(lr => lr.Reason).Include(lr => lr.Status).ToListAsync();
             }
         }
