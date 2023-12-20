@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GeoProfsNew.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,17 +14,15 @@ namespace GeoProfsNew.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public ActionResult DisplayUsers()
         {
-            try
+            using (var context = new ApplicationDbContext())
             {
-                string connectionString = "";
-            }
-            catch (Exception ex) 
-            { 
-
+                var users = context.Users.ToList();
+                return View(users);
             }
         }
+
     }
 }
 
