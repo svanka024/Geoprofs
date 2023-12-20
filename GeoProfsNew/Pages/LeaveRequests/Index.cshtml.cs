@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using GeoProfsNew.Models;
 using GeoProfsNew.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GeoProfsNew.Pages.LeaveRequests
 {
+    [Authorize(Roles = "Manager")]
     public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _context;
