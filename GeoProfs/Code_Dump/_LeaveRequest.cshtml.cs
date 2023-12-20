@@ -1,18 +1,11 @@
-//using GeoProfs.Models;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.AspNetCore.Mvc.RazorPages;
-//using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using GeoProfs.Data;
+using GeoProfs.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using GeoProfs.Data;
-using GeoProfs.Models;
 
-namespace GeoProfs.Pages.Test
+
+namespace GeoProfs.Code_Dump
 {
     public class _LeaveRequestModel : PageModel
     {
@@ -22,7 +15,9 @@ namespace GeoProfs.Pages.Test
         {
             _context = context;
         }
+
         public IList<LeaveRequest> LeaveRequest { get; set; } = default!;
+
         public async Task OnGetAsync()
         {
             if (_context.LeaveRequests != null)

@@ -1,8 +1,12 @@
-﻿@* @model _LeaveRequestModel *@
-@model IndexModel
+﻿@page
+@* @model IEnumerable<GeoProfs.Models.LeaveRequest> *@
+@model _LeaveRequestModel
 @{
     ViewData["Title"] = "Index";
 }
+
+<h1>Inbox</h1>
+
 <table class="table">
     <thead>
         <tr>
@@ -21,6 +25,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.LeaveRequest[0].Status)
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -57,12 +62,3 @@
         }
     </tbody>
 </table>
-
-    @* <div class="container">
-    <main role="main" class="pb-3">
-    @RenderBody()
-    </main>
-    </div>
-
-    @await RenderSectionAsync("Scripts", required: false)
-@* </body> *@
