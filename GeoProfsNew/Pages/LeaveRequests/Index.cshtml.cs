@@ -27,7 +27,10 @@ namespace GeoProfsNew.Pages.LeaveRequests
         {
             if (_context.LeaveRequests != null)
             {
-                LeaveRequest = await _context.LeaveRequests.Include(lr => lr.Reason).Include(lr => lr.Status).ToListAsync();
+                LeaveRequest = await _context.LeaveRequests
+                    .Include(lr => lr.Reason)
+                    .Include(lr => lr.Status)
+                    .ToListAsync();
             }
         }
         public IList<User> User { get;set; } = default!;
