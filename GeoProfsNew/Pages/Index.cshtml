@@ -1,5 +1,23 @@
 ﻿@page
 @model IndexModel
+
+<table>
+    <tr>
+        <th>Column1</th>
+        <th>Column2</th>
+        <!-- Add more headers if needed -->
+    </tr>
+
+    @foreach (var item in Model.YourDataList)
+    {
+        <tr>
+            <td>@item.Property1</td>
+            <td>@item.Property2</td>
+            <!-- Add more cells if needed -->
+        </tr>
+    }
+</table>
+
 @{
     ViewData["Title"] = "Home page";
 }

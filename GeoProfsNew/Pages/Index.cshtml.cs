@@ -7,21 +7,15 @@ namespace GeoProfsNew.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
+        public ActionResult DisplayData()
         {
-            _logger = logger;
+            // Read data from files and store it in a model
+            var data = ReadDataFromFiles();
+
+            // Pass data to the view
+            return View(data);
         }
 
-        public ActionResult DisplayUsers()
-        {
-            using (var context = new ApplicationDbContext())
-            {
-                var users = context.Users.ToList();
-                return View(users);
-            }
-        }
 
     }
 }
