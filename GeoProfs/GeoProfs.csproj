@@ -31,9 +31,5 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\Shared\_LeaveRequests.cshtml" />
   </ItemGroup>
-	
-  <ItemGroup>
-    <Folder Include="Code_Dump\" />
-  </ItemGroup>
 
 </Project>

@@ -1,8 +1,5 @@
 ﻿@page
 @model IndexModel
-@* @model GeoProfs.Pages.Shared._LeaveRequestModel *@
-@* @model dynamic *@
-@* @model IEnumerable<GeoProfs.Models.LeaveRequest> *@
 @{
     ViewData["Title"] = "Home page";
 }
@@ -45,30 +42,4 @@
     </div>
 </div>
 
-@* @Html.Partial("~/Pages/Shared/_LeaveRequest.cshtml", LeaveRequest) *@
 @await Html.PartialAsync("~/Pages/Shared/_LeaveRequest.cshtml")
-
-@* @{
-    var index = 0;
-
-    foreach (var section in Model.LeaveRequest) {
-        await Html.PartialAsync("_ArticleSectionRP",
-                                section,
-                                new ViewDataDictionary(ViewData)
-                                        {
-                                    { "index", index }
-                                        });
-
-        index++;
-    }
-} *@
-
-@* @Html.Partial("~/Pages/Shared/_LeaveRequest.cshtml", new LeaveRequest { Property1 = "Value1", Property2 = 42 }) *@
-@* @Html.Partial("~/Shared/index.cshtml") *@
-@* @Html.Partial("~/Pages/Shared/_LeaveRequest.cshtml", Model.LeaveRequest[i], new ViewDataDictionary { {"counter", i} } ) *@
-    
-@* @section Scripts{
-    <script>
-        $('#partialZone').load("LeaveRequestPartial")
-    </script>
-} *@
