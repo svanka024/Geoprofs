@@ -22,6 +22,14 @@
     <table class="table">
         <thead>
             <tr>
+                @if ( User.Identity.IsAuthenticated ){
+                    if (User.IsInRole("Manager"))
+                    {
+                <th>
+                    @Html.DisplayNameFor(model => model.LeaveRequest[0].User)
+                </th>
+                    }
+                }
                 <th>
                     @Html.DisplayNameFor(model => model.LeaveRequest[0].DateStart)
                 </th>
@@ -44,6 +52,15 @@
             @foreach (var item in Model.LeaveRequest)
             {
                 <tr>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Manager"))
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => item.User.UserName)
+                            </td>
+                        }
+                    }
                     @{
                         var startdateOnly = DateOnly.FromDateTime(item.DateStart);
                     }
@@ -81,6 +98,14 @@
     <table class="table">
         <thead>
             <tr>
+                @if ( User.Identity.IsAuthenticated ){
+                    if (User.IsInRole("Manager"))
+                    {
+                        <th>
+                            @Html.DisplayNameFor(model => model.LeaveRequest[0].User)
+                        </th>
+                    }
+                }
                 <th>
                     @Html.DisplayNameFor(model => model.LeaveRequest[0].DateStart)
                 </th>
@@ -105,6 +130,15 @@
                 if (item.Status.Id == 1)
                 {
                     <tr>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Manager"))
+                            {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.UserName)
+                        </td>
+                            }
+                        }
                         @{
                             var startdateOnly = DateOnly.FromDateTime(item.DateStart);
                         }
@@ -143,6 +177,14 @@
     <table class="table">
         <thead>
             <tr>
+                @if ( User.Identity.IsAuthenticated ){
+                    if (User.IsInRole("Manager"))
+                    {
+                <th>
+                    @Html.DisplayNameFor(model => model.LeaveRequest[0].User)
+                </th>
+                    }
+                }
                 <th>
                     @Html.DisplayNameFor(model => model.LeaveRequest[0].DateStart)
                 </th>
@@ -167,6 +209,15 @@
                 if (item.Status.Id == 2)
                 {
                     <tr>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Manager"))
+                            {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.UserName)
+                        </td>
+                            }
+                        }
                         @{
                             var startdateOnly = DateOnly.FromDateTime(item.DateStart);
                         }
@@ -207,6 +258,14 @@
     <table class="table">
         <thead>
             <tr>
+                @if ( User.Identity.IsAuthenticated ){
+                    if (User.IsInRole("Manager"))
+                    {
+                <th>
+                    @Html.DisplayNameFor(model => model.LeaveRequest[0].User)
+                </th>
+                    }
+                }
                 <th>
                     @Html.DisplayNameFor(model => model.LeaveRequest[0].DateStart)
                 </th>
@@ -231,6 +290,15 @@
                 if (item.Status.Id == 3)
                 {
                     <tr>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Manager"))
+                            {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.UserName)
+                        </td>
+                            }
+                        }
                         @{
                             var startdateOnly = DateOnly.FromDateTime(item.DateStart);
                         }
