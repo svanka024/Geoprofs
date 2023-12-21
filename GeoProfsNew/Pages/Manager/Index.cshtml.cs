@@ -23,25 +23,41 @@ namespace GeoProfsNew.Pages.Manager
 
         public IList<User> Users { get; set; } = default!;
         public IList<LeaveRequest> Sick { get; set; } = default!;
+        public IList<LeaveRequest> Vacation { get; set; } = default!;
+        public IList<LeaveRequest> Personal { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
             if (_context.Users != null)
             {
                 Users = await _context.Users
-                    //.Include(lr => lr.UserName)
-                    //.Include(lr => lr.VacationDays)
                     .ToListAsync();
             }
-
-            var user = await _userManager.GetUserAsync(User);
 
             if (_context.LeaveRequests != null)
             {
                 Sick = await _context.LeaveRequests
+                    .Include(lr => lr.User)
                     .Where(lr => lr.Reason.Id == 1)
-                    .Where(lr => lr.Status.Id == 3)
-                    //.Where(lr => lr.User == user)
+                    //.Where(lr => lr.Status.Id == 3)
+                    .ToListAsync();
+            }
+
+            if (_context.LeaveRequests != null)
+            {
+                Vacation = await _context.LeaveRequests
+                    .Include(lr => lr.User)
+                    .Where(lr => lr.Reason.Id == 2)
+                    //.Where(lr => lr.Status.Id == 3)
+                    .ToListAsync();
+            }
+
+            if (_context.LeaveRequests != null)
+            {
+                Personal = await _context.LeaveRequests
+                    .Include(lr => lr.User)
+                    .Where(lr => lr.Reason.Id == 3)
+                    //.Where(lr => lr.Status.Id == 3)
                     .ToListAsync();
             }
         }

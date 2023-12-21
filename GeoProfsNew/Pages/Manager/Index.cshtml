@@ -13,13 +13,16 @@
                 @Html.DisplayNameFor(model => model.Users[0].UserName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Sick[0].Reason)
+                @Html.DisplayNameFor(model => model.Sick)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].UserName)
+                @Html.DisplayNameFor(model => model.Vacation)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].UserName)
+                @Html.DisplayNameFor(model => model.Personal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Users[0].VacationDays) <!--Rol-->
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Users[0].VacationDays)
@@ -33,14 +36,29 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.UserName)
                 </td>
+                @{
+                    var filteredList = Model.Sick.Where(lr => lr.User == item).ToList();
+                    int listLength = filteredList.Count;
+                }
                 <td>
-                    @Html.DisplayFor(modelItem => Model.Sick.Where(lr => lr.User == item)) <!--Moet nog lengte pakken-->
+                    @Html.DisplayFor(modelItem => listLength)
+                </td>
+                @{
+                    filteredList = Model.Vacation.Where(lr => lr.User == item).ToList();
+                    listLength = filteredList.Count;
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => listLength)
+                </td>
+                @{
+                    filteredList = Model.Personal.Where(lr => lr.User == item).ToList();
+                    listLength = filteredList.Count;
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => listLength)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
+                    @Html.DisplayFor(modelItem => item.VacationDays)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.VacationDays)
