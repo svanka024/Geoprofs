@@ -42,23 +42,26 @@
             </div>
         </div>
     </div>
-    <div class="row mb-auto">
-        <div class="col-md-4">
-            <div class="row no-gutters border mb-4">
-                <div class="col p-4 mb-4 ">
-                    <form method="post">
-                    <div class="d-flex justify-content-center">
-                        <input type="submit" value="I am sick today" class="btn btn-primary" />
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="row mb-auto">
+            <div class="col-md-4">
+                <div class="row no-gutters border mb-4">
+                    <div class="col p-4 mb-4 ">
+                        <form method="post">
+                            <div class="d-flex justify-content-center">
+                                <input type="submit" value="I am sick today" class="btn btn-primary" />
+                            </div>
+                        </form>
+                        @if (TempData["SuccessMessage"] != null)
+                        {
+                            <div class="alert alert-success" role="alert">
+                                @TempData["SuccessMessage"]
+                            </div>
+                        }
                     </div>
-                    </form>
-                    @if (TempData["SuccessMessage"] != null)
-                    {
-                        <div class="alert alert-success" role="alert">
-                            @TempData["SuccessMessage"]
-                        </div>
-                    }
                 </div>
             </div>
         </div>
-    </div>
+    }
 </div>
