@@ -1,0 +1,64 @@
+﻿@* @model GeoProfs.Pages.Shared._LeaveRequestModel *@
+@* @model IndexModel *@
+@{
+    // ViewData["Title"] = "Index";
+}
+<body>
+    <h1>Partial View Content</h1>
+</body>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveRequest[0].DateStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveRequest[0].DateEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveRequest[0].Reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveRequest[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveRequest[0].Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LeaveRequest) {
+            <tr>
+                @{
+                    var startdateOnly = DateOnly.FromDateTime(item.DateStart);
+                }
+                <td>
+                    @startdateOnly
+                </td>
+                @{
+                    var endDateOnly = DateOnly.FromDateTime(item.DateEnd);
+                }
+                <td>
+                    @endDateOnly
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reason.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status.Name)
+                </td>
+                <td>
+                    <a asp-page="./LeaveRequests/Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./LeaveRequests/Delete" asp-route-id="@item.Id">Delete</a> |
+                    <a asp-page="./LeaveRequests/Details" asp-route-id="@item.Id">Details</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
