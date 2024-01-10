@@ -25,10 +25,10 @@ namespace GeoProfsNew.Pages
             _userManager = userManager;
         }
 
-        public void OnGet()
-        {
+        //public void OnGet()
+        //{
 
-        }
+        //}
 
         //public LeaveRequest LeaveRequest { get; set; }
         public IList<LeaveRequest> LeaveRequest { get; set; } = default!;
