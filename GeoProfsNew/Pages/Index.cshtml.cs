@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GeoProfsNew.Pages
 {
-    [Authorize(Roles = "Manager,Member")]
     public class IndexModel : PageModel {
         private readonly ILogger<IndexModel> _logger;
         private readonly ApplicationDbContext _context;
