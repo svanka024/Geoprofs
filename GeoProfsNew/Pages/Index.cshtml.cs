@@ -8,11 +8,13 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using GeoProfsNew.Data.Migrations;
 using System.Data;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace GeoProfsNew.Pages
 {
-    public class IndexModel : PageModel
-    {
+    [Authorize(Roles = "Manager,Member")]
+    public class IndexModel : PageModel {
         private readonly ILogger<IndexModel> _logger;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<User> _userManager;
@@ -29,8 +31,32 @@ namespace GeoProfsNew.Pages
 
         }
 
-        public LeaveRequest LeaveRequest { get; set; }
+        //public LeaveRequest LeaveRequest { get; set; }
+        public IList<LeaveRequest> LeaveRequest { get; set; } = default!;
         public List<SelectListItem> ReasonTypes { get; set; }
+
+        public async Task OnGetAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            if (User.IsInRole("Manager")) {
+                if (_context.LeaveRequests != null) {
+                    LeaveRequest = await _context.LeaveRequests
+                        .Include(lr => lr.Reason)
+                        .Include(lr => lr.Status)
+                        .Include(lr => lr.User)
+                        .ToListAsync();
+                }
+            }
+            else if (User.IsInRole("Member")) {
+                LeaveRequest = await _context.LeaveRequests
+                        .Include(lr => lr.Reason)
+                        .Include(lr => lr.Status)
+                        .Include(lr => lr.User)
+                        .Where(lr => lr.User == user)
+                        .ToListAsync();
+            }
+        }
 
         public async Task<IActionResult> OnPostAsync()
         {

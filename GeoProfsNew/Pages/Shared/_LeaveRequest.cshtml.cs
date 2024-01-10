@@ -1,5 +1,6 @@
-using GeoProfs.Data;
-using GeoProfs.Models;
+using GeoProfsNew.Data;
+using GeoProfsNew.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -7,19 +8,37 @@ using Microsoft.EntityFrameworkCore;
 namespace GeoProfs.Pages.Shared
 {
     public class _LeaveRequestModel : PageModel {
-        private readonly GeoProfsContext _context;
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<User> _userManager;
 
-        public _LeaveRequestModel(GeoProfsContext context)
+        public _LeaveRequestModel(ApplicationDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IList<LeaveRequest> LeaveRequest { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.LeaveRequests != null) {
-                LeaveRequest = await _context.LeaveRequests.Include(lr => lr.Reason).Include(lr => lr.Status).ToListAsync();
+            var user = await _userManager.GetUserAsync(User);
+
+            if (User.IsInRole("Manager")) {
+                if (_context.LeaveRequests != null) {
+                    LeaveRequest = await _context.LeaveRequests
+                        .Include(lr => lr.Reason)
+                        .Include(lr => lr.Status)
+                        .Include(lr => lr.User)
+                        .ToListAsync();
+                }
+            }
+            else if (User.IsInRole("Member")) {
+                LeaveRequest = await _context.LeaveRequests
+                        .Include(lr => lr.Reason)
+                        .Include(lr => lr.Status)
+                        .Include(lr => lr.User)
+                        .Where(lr => lr.User == user)
+                        .ToListAsync();
             }
         }
     }
