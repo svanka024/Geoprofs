@@ -44,6 +44,9 @@
     </div>
     @if (User.Identity.IsAuthenticated)
     {
+        if (User.IsInRole("Manager")){
+            @await Html.PartialAsync("~/Pages/Shared/_LeaveRequest.cshtml")
+        }
         <div class="row mb-auto">
             <div class="col-md-4">
                 <div class="row no-gutters border mb-4">
