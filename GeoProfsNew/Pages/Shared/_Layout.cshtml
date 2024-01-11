@@ -26,10 +26,14 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                         @if ( User.Identity.IsAuthenticated ){
-                            if ( User.IsInRole("Manager") ){
+                            if (User.IsInRole("Manager") || User.IsInRole("Member"))
+                            {
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-page="/LeaveRequests/Index">Inbox</a>
                                 </li>
+                            }
+                            if (User.IsInRole("Manager"))
+                            {
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-page="/Manager/ChangeUserRole">Change role of a user</a>
                                 </li>
