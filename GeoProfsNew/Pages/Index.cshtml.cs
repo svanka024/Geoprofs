@@ -15,8 +15,6 @@ namespace GeoProfsNew.Pages
             // Pass data to the view
             return View(data);
         }
-
-
     }
 }
 
