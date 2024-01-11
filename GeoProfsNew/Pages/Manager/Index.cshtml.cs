@@ -1,4 +1,5 @@
 using GeoProfsNew.Data;
+using GeoProfsNew.Data.Migrations;
 using GeoProfsNew.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -26,13 +27,15 @@ namespace GeoProfsNew.Pages.Manager
         public IList<LeaveRequest> Vacation { get; set; } = default!;
         public IList<LeaveRequest> Personal { get; set; } = default!;
 
+
+
         public async Task OnGetAsync()
         {
             if (_context.Users != null)
             {
                 Users = await _context.Users
                     .ToListAsync();
-            }
+            }            
 
             if (_context.LeaveRequests != null)
             {

@@ -1,5 +1,7 @@
 ﻿@page
+@using GeoProfsNew.Models;
 @model GeoProfsNew.Pages.Manager.IndexModel
+@inject UserManager<User> _userManager
 @{
     ViewData["Title"] = "Index";
 }
@@ -22,10 +24,13 @@
                 @Html.DisplayNameFor(model => model.Personal)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].VacationDays) <!--Rol-->
+                @Html.DisplayName("Role")
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Users[0].VacationDays)
+            </th>
+            <th>
+                @Html.DisplayName("VacationDaysResting")
             </th>
         </tr>
     </thead>
@@ -58,10 +63,22 @@
                     @Html.DisplayFor(modelItem => listLength)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.VacationDays)
+                    @{
+                        var roles = await _userManager.GetRolesAsync(item);
+                        var role = roles.FirstOrDefault();
+                    }
+                    @Html.DisplayFor(modelItem => role)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.VacationDays)
+                </td>
+                @{
+                    filteredList = Model.Vacation.Where(lr => lr.User == item).ToList();
+                    listLength = filteredList.Count;
+                    int rest = item.VacationDays - listLength;
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => rest)
                 </td>
             </tr>
         }
