@@ -45,6 +45,7 @@ namespace GeoProfsNew.Pages.LeaveRequests
             else if(User.IsInRole("Member"))
             {
                 LeaveRequest = await _context.LeaveRequests
+
                         .Include(lr => lr.Reason)
                         .Include(lr => lr.Status)
                         .Include(lr => lr.User)

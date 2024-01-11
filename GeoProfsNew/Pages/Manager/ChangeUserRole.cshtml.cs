@@ -6,9 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GeoProfsNew.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace GeoProfsNew.Pages.Manager
 {
+    [Authorize(Roles = "Manager")]
     public class ChangeUserRoleModel : PageModel
     {
         private readonly UserManager<User> _userManager;
