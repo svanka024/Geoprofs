@@ -37,8 +37,3 @@ window.onclick = function (event) {
     }
 }
 
-//expandable table items for inbox page
-function cellselector(cellid) {
-    console.log(jscellid);
-    document.getElementById(test).style.backgroundColor = "blue";
-}

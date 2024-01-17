@@ -60,7 +60,7 @@
                         @Html.DisplayFor(modelItem => item.Reason.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Description)
+                        @Html.DisplayFor(modelItem => item.User.FirstName)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Status.Name)
@@ -225,21 +225,13 @@
                 <th></th>
             </tr>
         </thead>
-        <script>
-            let jscellid = "";
-        </script>
+
         <tbody>
             @foreach (var item in Model.LeaveRequest)
             {
                 if (item.Status.Id == 3)
                 {
-                    
-                    var cellid = "tab3cell" + item.Id.ToString();
-                    <script>
-                       jscellid = @cellid;
-                    </script>
-                    <button onclick="cellselector(@cellid)"> </button>
-                    <tr id="@cellid" class="tablecell"> 
+                    <tr class="tablecell"> 
                         @{
                             var startdateOnly = DateOnly.FromDateTime(item.DateStart);
                         }
