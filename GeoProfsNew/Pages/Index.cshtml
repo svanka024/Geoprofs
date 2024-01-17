@@ -4,7 +4,7 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="row mb-auto">
+<!-- <div class="row mb-auto">
     <div class="col-md-4">
         <div class="row no-gutters border mb-4">
             <div class="col p-4 mb-4 ">
@@ -41,30 +41,36 @@
                 </p>
             </div>
         </div>
-    </div>
+    </div> -->
+<div class="row mb-auto">
     @if (User.Identity.IsAuthenticated)
     {
         if (User.IsInRole("Manager")){
-            @await Html.PartialAsync("~/Pages/Shared/_LeaveRequest.cshtml")
-        }
-        <div class="row mb-auto">
-            <div class="col-md-4">
+            <div class="col-md-8">
                 <div class="row no-gutters border mb-4">
-                    <div class="col p-4 mb-4 ">
-                        <form method="post">
-                            <div class="d-flex justify-content-center">
-                                <input type="submit" value="I am sick today" class="btn btn-primary" />
-                            </div>
-                        </form>
-                        @if (TempData["SuccessMessage"] != null)
-                        {
-                            <div class="alert alert-success" role="alert">
-                                @TempData["SuccessMessage"]
-                            </div>
-                        }
+                    <div class="col p-4 d-flex flex-column">
+                        @await Html.PartialAsync("~/Pages/Shared/_LeaveRequest.cshtml")
                     </div>
                 </div>
             </div>
+        }
+        <div class="col-md-4">
+            <div class="row no-gutters border mb-4">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <form method="post">
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="I am sick today" class="btn btn-primary" />
+                        </div>
+                    </form>
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @TempData["SuccessMessage"]
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
+
     }
 </div>
