@@ -45,6 +45,7 @@ namespace GeoProfsNew.Pages.verlofsaldo
 
                     // Bereken verlofsaldi op basis van de LeaveRequests
                     CalculateVerlofSaldi();
+
                 }
             }
         }
@@ -60,5 +61,6 @@ namespace GeoProfsNew.Pages.verlofsaldo
                 // Bijvoorbeeld: VerlofSaldi[request.EmployeeId] += request.DaysRequested;
             }
         }
+
     }
 }
