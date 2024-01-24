@@ -45,7 +45,8 @@
 <div class="row mb-auto">
     @if (User.Identity.IsAuthenticated)
     {
-        if (User.IsInRole("Manager")){
+        if (User.IsInRole("Manager") || User.IsInRole("Member"))
+        {
             <div class="col-md-8">
                 <div class="row no-gutters border mb-4">
                     <div class="col p-4 d-flex flex-column">
@@ -71,6 +72,5 @@
                 </div>
             </div>
         </div>
-
     }
 </div>
