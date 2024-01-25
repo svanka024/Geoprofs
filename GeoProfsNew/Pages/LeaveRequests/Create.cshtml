@@ -38,9 +38,9 @@
                         <hr>
                         <div class="d-flex justify-content-center">
                             <label asp-for="LeaveRequest.DateStart" > Start: </label><br>
-                            <input type="date" asp-for="LeaveRequest.DateStart" class="form-control"><br>
+                            <input type="date" asp-for="LeaveRequest.DateStart" class="form-control" id="startDate" value="@DateTime.Now.ToString("yyyy-MM-dd")"><br>
                             <label asp-for="LeaveRequest.DateEnd" > End: </label><br>
-                            <input type="date" asp-for="LeaveRequest.DateEnd" class="form-control"><br>
+                            <input type="date" asp-for="LeaveRequest.DateEnd" class="form-control" id="endDate" value="@DateTime.Now.ToString("yyyy-MM-dd")"><br>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-center">
@@ -70,3 +70,12 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+    // Get today's date in the format yyyy-mm-dd
+    const today = new Date().toISOString().split('T')[0];
+
+    // Set the min attribute of the input element to today's date
+    document.getElementById('startDate').min = today;
+    document.getElementById('endDate').min = today;
+</script>
