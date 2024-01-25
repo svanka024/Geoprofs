@@ -71,7 +71,7 @@ using (var scope = app.Services.CreateScope())
 {
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
 
-    string email = "admin@admin";
+    string email = "manager@manager";
     string password = "Test123!";
 
     if(await userManager.FindByEmailAsync(email) == null)
@@ -82,6 +82,38 @@ using (var scope = app.Services.CreateScope())
         
         await userManager.CreateAsync(user, password);
         await userManager.AddToRoleAsync(user, "Manager");
+    }
+}
+
+using (var scope = app.Services.CreateScope()) {
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+
+    string email = "admin@admin";
+    string password = "Test123!";
+
+    if (await userManager.FindByEmailAsync(email) == null) {
+        var user = new User();
+        user.UserName = email;
+        user.Email = email;
+
+        await userManager.CreateAsync(user, password);
+        await userManager.AddToRoleAsync(user, "Admin");
+    }
+}
+
+using (var scope = app.Services.CreateScope()) {
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+
+    string email = "member@member";
+    string password = "Test123!";
+
+    if (await userManager.FindByEmailAsync(email) == null) {
+        var user = new User();
+        user.UserName = email;
+        user.Email = email;
+
+        await userManager.CreateAsync(user, password);
+        await userManager.AddToRoleAsync(user, "Member");
     }
 }
 
