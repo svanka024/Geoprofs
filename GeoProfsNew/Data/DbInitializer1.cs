@@ -26,7 +26,7 @@ namespace WebApplication1.Data
 
             var users = new User[]
             {
-                new User{FirstName="Carson",LastName="Alexander",DateService=DateTime.Parse("2019-09-01")},
+                //new User{FirstName="Carson",LastName="Alexander",DateService=DateTime.Parse("2019-09-01")},
             };
 
             context.Users.AddRange(users);
