@@ -53,7 +53,13 @@
                     @Html.DisplayFor(modelItem => item.Status.Name)
                 </td>
                 <td>
-                    <a asp-page="./LeaveRequests/Edit" asp-route-id="@item.Id">Edit</a> |
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Manager"))
+                        {
+                            <a asp-page="./LeaveRequests/Edit" asp-route-id="@item.Id">Edit</a> 
+                        }
+                    }
                     <a asp-page="./LeaveRequests/Delete" asp-route-id="@item.Id">Delete</a> |
                     <a asp-page="./LeaveRequests/Details" asp-route-id="@item.Id">Details</a>
 
