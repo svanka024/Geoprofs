@@ -19,8 +19,9 @@ namespace GeoProfsNew.Pages.LeaveRequests
             _context = context;
         }
 
-      public LeaveRequest LeaveRequest { get; set; }
-      public List<Status> StatusItems { get; set; }
+        public LeaveRequest LeaveRequest { get; set; }
+        //public IList<LeaveRequest> LeaveRequest { get; set; } = default!;
+        public List<Status> StatusItems { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
