@@ -1,0 +1,86 @@
+﻿@page
+@using GeoProfsNew.Models;
+@model GeoProfsNew.Pages.Manager.IndexModel
+@inject UserManager<User> _userManager
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Werknemers</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Users[0].UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sick)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vacation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personal)
+            </th>
+            <th>
+                @Html.DisplayName("Role")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Users[0].VacationDays)
+            </th>
+            <th>
+                @Html.DisplayName("VacationDaysResting")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                @{
+                    var filteredList = Model.Sick.Where(lr => lr.User == item).ToList();
+                    int listLength = filteredList.Count;
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => listLength)
+                </td>
+                @{
+                    filteredList = Model.Vacation.Where(lr => lr.User == item).ToList();
+                    listLength = filteredList.Count;
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => listLength)
+                </td>
+                @{
+                    filteredList = Model.Personal.Where(lr => lr.User == item).ToList();
+                    listLength = filteredList.Count;
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => listLength)
+                </td>
+                <td>
+                    @{
+                        var roles = await _userManager.GetRolesAsync(item);
+                        var role = roles.FirstOrDefault();
+                    }
+                    @Html.DisplayFor(modelItem => role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VacationDays)
+                </td>
+                @{
+                    filteredList = Model.Vacation.Where(lr => lr.User == item).ToList();
+                    listLength = filteredList.Count;
+                    int rest = item.VacationDays - listLength;
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => rest)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

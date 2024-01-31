@@ -1,0 +1,22 @@
+﻿@page
+@using GeoProfsNew.Models;
+@model GeoProfsNew.Pages.Manager.ChangeUserRoleModel
+@inject UserManager<User> UserManager
+@{
+    <form method="post">
+        <label for="userId">Select User:</label>
+        <select asp-for="UserId" asp-items="Model.AllUsers" class="form-control"></select>
+
+        <label for="role">Select Role:</label>
+        <select asp-for="Role" asp-items="Model.AllRoles" class="form-control"></select>
+
+        <button type="submit" class="btn btn-primary">Change Role</button>
+    </form>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+}

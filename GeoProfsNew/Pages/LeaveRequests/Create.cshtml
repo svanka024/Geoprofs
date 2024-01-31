@@ -1,0 +1,81 @@
+﻿@page
+@using GeoProfsNew.Models;
+@model GeoProfsNew.Pages.LeaveRequests.CreateModel
+
+@{
+    ViewData["Title"] = "Verlof Aanvragen";
+}
+
+
+<div class="row mb-auto justify-content-center">
+    <div class="col-md-4">
+        <div class="row no-gutters border mb-4">
+            <div class="col p-4 mb-4 ">
+                <h2 class="d-flex justify-content-center">
+                    Leave request
+                </h2>
+                <hr>
+                <div class="">
+                    <p class ="d-flex justify-content-center">Leave type</p>
+                    <form method="post">
+                        
+                        <div class="d-flex justify-content-betweend"></div>
+                        <div class="d-flex justify-content-center">
+                        
+                            @foreach (var reasonType in Model.ReasonTypes)
+                            {
+                                <div class="form-check">
+                                    <input asp-for="LeaveRequest.Reason" type="radio" value="@reasonType.Value" id="reasonType_@reasonType.Value" class="form-check-input">
+                                    <label asp-for="reasonType_@reasonType.Value" class="form-check-label" > @reasonType.Text </label>
+                                </div>
+                            }
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <label asp-for="LeaveRequest.Description">Additional info: </label><br>
+                            <textarea asp-for="LeaveRequest.Description" rows="4" cols="50"></textarea>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <label asp-for="LeaveRequest.DateStart" > Start: </label><br>
+                            <input type="date" asp-for="LeaveRequest.DateStart" class="form-control" id="startDate" value="@DateTime.Now.ToString("yyyy-MM-dd")"><br>
+                            <label asp-for="LeaveRequest.DateEnd" > End: </label><br>
+                            <input type="date" asp-for="LeaveRequest.DateEnd" class="form-control" id="endDate" value="@DateTime.Now.ToString("yyyy-MM-dd")"><br>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Please ignore unused code for dropdown, but fuck dropdowns! They are ugly af!
+
+<select name="LeaveRequest" id="leaveRequest">
+    <optgroup label="Leave reason">
+    <option value="1">Sick</option>
+    <option value="2">Vacation</option>
+    <option value="3">Personal</option>
+    </optgroup>
+</select> *@
+
+@*<div>
+    <a asp-page="Index">Back to List</a>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+    // Get today's date in the format yyyy-mm-dd
+    const today = new Date().toISOString().split('T')[0];
+
+    // Set the min attribute of the input element to today's date
+    document.getElementById('startDate').min = today;
+    document.getElementById('endDate').min = today;
+</script>
